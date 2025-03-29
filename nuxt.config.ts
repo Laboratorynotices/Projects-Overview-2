@@ -8,9 +8,13 @@ export default defineNuxtConfig({
   modules: [
     // ESLint для проверки кода
     "@nuxt/eslint",
+    // NuxtHub для хостинга, базы данных и других сервисов
+    "@nuxthub/core",
   ],
   // Подключаем CSS-файл
   css: ["~/assets/css/main.css"],
+  // Настройки плагина NuxtHub
+  hub: {},
   // Подключаем плагин
   vite: {
     // Подключаем плагин tailwindcss
