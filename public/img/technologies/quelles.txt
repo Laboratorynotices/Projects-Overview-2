@@ -1,0 +1,8 @@
+Vue.js.svg          https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg
+html5.svg           https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg
+cakephp.svg         https://iconape.com/cakephp-logo-logo-icon-svg-png.html
+yii2.svg            https://iconape.com/yii-2-logo-icon-svg-png.html
+Tailwind-CSS.svg    https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg
+Vuetify.svg         https://iconape.com/vuetify-logo-logo-icon-svg-png.html
+Bootstrap.svg       https://commons.wikimedia.org/wiki/File:Bootstrap_logo.svg
+Astro.svg           https://astro.build/assets/press/logomark-light.svg
