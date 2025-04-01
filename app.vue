@@ -1,6 +1,18 @@
 <script setup lang="ts">
 import { type Project } from "~/types/project.types";
 
+// Задаём метаданные страницы для SEO
+useSeoMeta({
+  title: "Список проектов",
+  /*  
+  ogTitle: 'My Amazing Site',
+  description: 'This is my amazing site, let me tell you all about it.',
+  ogDescription: 'This is my amazing site, let me tell you all about it.',
+  ogImage: 'https://example.com/image.png',
+  twitterCard: 'summary_large_image',
+  */
+});
+
 const projects = ref<Project[]>([
   {
     name: "Vogelsberg",
