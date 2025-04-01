@@ -14,28 +14,8 @@ useSeoMeta({
   */
 });
 
-const projects = ref<Project[]>([
-  {
-    name: "Vogelsberg",
-    url: "https://google.com",
-    description:
-      "Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. ",
-    technologies: ["Vue.js", "html5"],
-  },
-  {
-    name: "Steinhaufen",
-    url: "https://google.de",
-    description:
-      "Aha-hu-ha ahu uha. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. Uhu-hu-hu uhu uhu. ",
-    technologies: ["cakephp", "html5"],
-  },
-  {
-    name: "Wassertahl",
-    url: "https://google.at",
-    description: "Tropf-Tropf, Tropf, Tropf, Tropf-Tropf. Tropf.",
-    technologies: ["yii2", "html5"],
-  },
-]);
+// Используем наш composable
+const { projects /*, technologies, fetchProjects */ } = useProjects();
 
 // Получение уникального списка технологий с использованием map() и reduce()
 const technologiesOld: string[] = projects.value
