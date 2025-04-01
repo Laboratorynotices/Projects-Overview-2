@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Project } from "~/types/project.types";
+import { useProjects } from "~/composables/useProjects";
 
 // Задаём метаданные страницы для SEO
 useSeoMeta({
