@@ -17,6 +17,8 @@ export default defineNuxtConfig({
   hub: {
     // Активируем кэширование для NuxtHub
     cache: true,
+    // Активируем D1 SQL Database от Cloudflare
+    database: true,
   },
   // Разрешаем использовать SSR (Server-Side Rendering)
   ssr: true,
