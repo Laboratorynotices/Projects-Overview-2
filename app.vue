@@ -16,6 +16,11 @@ useSeoMeta({
 
 // Используем наш composable
 const { projects, technologies, fetchProjects } = useProjects();
+
+// Загружаем проекты при монтировании компонента
+onMounted(async () => {
+  await fetchProjects();
+});
 </script>
 
 <template>
