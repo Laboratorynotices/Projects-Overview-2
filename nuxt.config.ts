@@ -15,6 +15,8 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css"],
   // Настройки плагина NuxtHub
   hub: {},
+  // Разрешаем использовать SSR (Server-Side Rendering)
+  ssr: true,
   // Подключаем плагин
   vite: {
     // Подключаем плагин tailwindcss
