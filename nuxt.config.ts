@@ -14,7 +14,10 @@ export default defineNuxtConfig({
   // Подключаем CSS-файл
   css: ["~/assets/css/main.css"],
   // Настройки плагина NuxtHub
-  hub: {},
+  hub: {
+    // Активируем кэширование для NuxtHub
+    cache: true,
+  },
   // Разрешаем использовать SSR (Server-Side Rendering)
   ssr: true,
   // Подключаем плагин
