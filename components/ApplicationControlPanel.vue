@@ -43,7 +43,7 @@ function toggleDarkTheme() {
     class="fixed right-0 bottom-1/3 bg-gradient-to-br from-blue-700 to-blue-500 dark:from-blue-300 dark:to-blue-100 drop-shadow-xl rounded-l-3xl border-2 border-r-0 border-black dark:border-white"
   >
     <div
-      class="rounded-full aspect-square m-2 p-1 bg-white dark:bg-gradient-to-br dark:from-blue-700 dark:to-blue-500"
+      class="cursor-pointer rounded-full aspect-square m-2 p-1 bg-white dark:bg-gradient-to-br dark:from-blue-700 dark:to-blue-500"
       @click="toggleDarkTheme"
     >
       <svg
