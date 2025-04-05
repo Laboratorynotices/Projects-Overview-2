@@ -20,18 +20,20 @@ export function useProjects() {
       }
 
       // Данные успешно загружены, обновляем состояние
-      if (data.value) {
-        // Проверяем, что данные имеют правильный формат
-        projects.value = Array.isArray(data.value)
-          ? data.value.map((item) => ({
-              name: item.name,
-              url: item.url,
-              gitHubUrl: item.gitHubUrl,
-              description: item.description,
-              technologies: item.technologies,
-            }))
-          : [];
+      if (
+        data.value &&
+        data.value.success &&
+        Array.isArray(data.value.results)
+      ) {
+        projects.value = data.value.results.map((item) => ({
+          name: item.name,
+          url: item.url,
+          gitHubUrl: item.gitHubUrl,
+          description: item.description,
+          technologies: item.technologies || [],
+        }));
       }
+
       return projects.value;
     } catch (error) {
       console.error("Ошибка загрузки проектов:", error);
@@ -43,7 +45,7 @@ export function useProjects() {
   const technologies = computed(() => {
     return [
       ...new Set(
-        projects.value.flatMap((project: Project) => project.technologies)
+        projects.value.flatMap((project: Project) => project.technologies || [])
       ),
     ];
   });
