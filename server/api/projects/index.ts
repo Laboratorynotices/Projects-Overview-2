@@ -1,4 +1,4 @@
-import { Project } from "~/types/project.types";
+import { Project, ProjectRow } from "~/types/project.types";
 import {
   ProjectsApiResponse,
   // ApiErrorResponse,
@@ -6,6 +6,7 @@ import {
 import type { H3Event } from "h3";
 
 export default cachedEventHandler(
+  // export default defineEventHandler(
   async (): Promise<ProjectsApiResponse> => {
     const db = hubDatabase();
 
@@ -13,20 +14,11 @@ export default cachedEventHandler(
       // SQL-запрос для получения проектов и связанных технологий
       const SQL_QUERY = `
         SELECT 
-          p.id,
           p.name,
           p.url,
-          p.github_url AS "gitHubUrl",
+          p.gitHubUrl,
           p.description,
-          COALESCE(
-            JSON_AGG(
-              JSON_BUILD_OBJECT(
-                'id', t.id,
-                'name', t.name
-              )
-            ) FILTER (WHERE t.id IS NOT NULL),
-            '[]'::JSON
-          ) AS technologies
+          json_group_array(t.name) AS technologies
         FROM 
           project p
         LEFT JOIN 
@@ -34,21 +26,33 @@ export default cachedEventHandler(
         LEFT JOIN 
           technology t ON pt.technology_id = t.id
         GROUP BY 
-          p.id
-        ORDER BY 
-          p.id;
+          p.id, p.name, p.url, p.gitHubUrl, p.description;
       `;
+
       // Выполняем SQL-запрос и получаем результаты
-      const projects: Project[] = await db.prepare(SQL_QUERY).all();
+      const rawResults = await db.prepare(SQL_QUERY).all();
+
+      // Распарсиваем технологии из JSON-строки в массив
+      const projects: Project[] = rawResults.results.map(
+        (project: ProjectRow) => ({
+          ...project,
+          technologies: project.technologies
+            ? JSON.parse(project.technologies)
+            : [], // Парсим JSON или возвращаем пустой массив
+        })
+      );
 
       return {
         results: projects,
-        success: true,
+        success: rawResults.success,
         timestamp: Date.now(),
       } as ProjectsApiResponse;
     } catch (error) {
       console.error(error);
-      throw createError({ statusCode: 500, message: "Database error" });
+      throw createError({
+        statusCode: 500,
+        message: "Database error: " + error,
+      });
       /*
       // Если вы хотите вернуть ошибку в формате ApiErrorResponse, раскомментируйте следующий код
       return {
@@ -60,7 +64,7 @@ export default cachedEventHandler(
     }
   },
   {
-    maxAge: 60 * 60, // 1 час
+    maxAge: 10 * 60, // 10 минут
     getKey: (event: H3Event) => event.path,
   }
 );
