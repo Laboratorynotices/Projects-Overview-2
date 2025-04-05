@@ -4,7 +4,7 @@ import { useProjects } from "~/composables/useProjects";
 
 // Задаём метаданные страницы для SEO
 useSeoMeta({
-  title: "Список проектов",
+  title: "Projektliste",
   /*
   ogTitle: 'My Amazing Site',
   description: 'This is my amazing site, let me tell you all about it.',
