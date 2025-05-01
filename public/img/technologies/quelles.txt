@@ -6,3 +6,4 @@ Tailwind-CSS.svg    https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind
 Vuetify.svg         https://iconape.com/vuetify-logo-logo-icon-svg-png.html
 Bootstrap.svg       https://commons.wikimedia.org/wiki/File:Bootstrap_logo.svg
 Astro.svg           https://astro.build/assets/press/logomark-light.svg
+i18n.svg            https://www.svgrepo.com/svg/324210/language-translation
