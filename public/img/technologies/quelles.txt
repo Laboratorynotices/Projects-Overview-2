@@ -11,3 +11,4 @@ Nuxt.svg            https://iconape.com/nuxt-logo-logo-icon-svg-png.html
 SQLite.svg          https://iconape.com/sqlite-logo-logo-icon-svg-png.html
 MySQL.svg           https://iconape.com/mysql-2-logo-icon-svg-png.html
 Laravel.svg         https://iconape.com/laravel-logo-2-logo-icon-svg-png.html
+Firebase            https://iconape.com/firebase-2-logo-icon-svg-png.html
