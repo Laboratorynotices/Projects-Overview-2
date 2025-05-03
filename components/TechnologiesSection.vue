@@ -18,7 +18,7 @@ const extendedItems = computed(() => {
 
   // Иначе создаем массив с дублированием элементов для создания эффекта бесконечности
   // Добавляем последние элементы в начало и первые элементы в конец
-  const cloneCount = Math.min(5, props.technologies.length);
+  const cloneCount = Math.min(10, props.technologies.length);
 
   const prefix = props.technologies.slice(-cloneCount);
   const suffix = props.technologies.slice(0, cloneCount);
@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
         <!-- Кнопка "Назад" -->
         <button
           @click="prevSlide"
-          class="carousel-nav-button carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:bg-[rgba(255,255,255,0.4)]"
+          class="carousel-nav-button carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
           aria-label="zurück"
         >
           <svg
@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
         <!-- Кнопка "Вперед" -->
         <button
           @click="nextSlide"
-          class="carousel-nav-button carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10"
+          class="carousel-nav-button carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
           aria-label="vorwärts"
         >
           <svg
@@ -234,15 +234,5 @@ onBeforeUnmount(() => {
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-/* Стили для тёмной темы */
-.dark .carousel-nav-button {
-  background-color: rgba(30, 64, 175, 0.2);
-  color: #1e40af;
-}
-
-.dark .carousel-nav-button:hover {
-  background-color: rgba(30, 64, 175, 0.4);
 }
 </style>
