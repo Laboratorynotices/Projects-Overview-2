@@ -154,7 +154,7 @@ onBeforeUnmount(() => {
         <!-- Кнопка "Назад" -->
         <button
           @click="prevSlide"
-          class="carousel-nav-button carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
+          class="carousel-nav-button carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-[rgba(255,255,255,0.2)] text-[white] cursor-pointer transition-[background-color] duration-[0.3s] ease-[ease] rounded-[50%] border-[none] hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
           aria-label="zurück"
         >
           <svg
@@ -198,7 +198,7 @@ onBeforeUnmount(() => {
         <!-- Кнопка "Вперед" -->
         <button
           @click="nextSlide"
-          class="carousel-nav-button carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
+          class="carousel-nav-button carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 bg-[rgba(255,255,255,0.2)] text-[white] cursor-pointer transition-[background-color] duration-[0.3s] ease-[ease] rounded-[50%] border-[none] hover:bg-[rgba(255,255,255,0.4)] dark:bg-[rgba(30,64,175,0.2)] dark:text-blue-800 dark:hover:bg-[rgba(30,64,175,0.4)]"
           aria-label="vorwärts"
         >
           <svg
@@ -220,19 +220,3 @@ onBeforeUnmount(() => {
     </div>
   </section>
 </template>
-
-<style scoped>
-.carousel-nav-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-</style>
